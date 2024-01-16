@@ -1,6 +1,8 @@
 package ch.tbz.recipe.planner.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +15,17 @@ import java.util.UUID;
 @Data
 public class Recipe {
 
-    private UUID id;
-    private String name;
-    private String description;
-    private String imageUrl;
-    private List<Ingredient> ingredients;
+	private UUID id;
+	private String name;
+	private String description;
+	private String imageUrl;
+	private List<Ingredient> ingredients;
+
+	@JsonCreator
+	public Recipe(@JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("imageUrl") String imageUrl, @JsonProperty("ingredients") List<Ingredient> ingredients) {
+		this.name = name;
+		this.description = description;
+		this.imageUrl = imageUrl;
+		this.ingredients = ingredients;
+	}
 }
