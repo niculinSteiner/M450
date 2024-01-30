@@ -37,14 +37,12 @@ public class RecipeController {
 
 	@PostMapping(value = "/api/recipes")
 	public ResponseEntity<Recipe> addRecipe(@RequestBody Recipe recipe) {
-		System.out.println(recipe);
 		return new ResponseEntity<>(service.addRecipe(recipe), HttpStatus.OK);
 	}
 
 
 	@PutMapping(value = "/api/recipes")
 	public ResponseEntity<Recipe> editRecipeByName(@RequestBody Recipe recipe) {
-		System.out.println(recipe);
 		service.edit(recipe);
 		return new ResponseEntity<>(getRecipe(recipe.getId()).getStatusCode());
 	}
