@@ -20,12 +20,4 @@ public class Recipe {
 	private String description;
 	private String imageUrl;
 	private List<Ingredient> ingredients;
-
-	@JsonCreator
-	public Recipe(@JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("imageUrl") String imageUrl, @JsonProperty("ingredients") List<Ingredient> ingredients) {
-		this.name = name;
-		this.description = description;
-		this.imageUrl = imageUrl;
-		this.ingredients = ingredients;
-	}
 }

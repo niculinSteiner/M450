@@ -50,13 +50,13 @@ public class EntityMapperTest {
 	public void testIngredientMapperDomainToEntity() {
 		Ingredient ingredient = new Ingredient();
 		ingredient.setId(UUID.randomUUID());
-		ingredient.setName("test");
+		ingredient.setQuantity("test");
 		Ingredient ingredient2 = new Ingredient();
 		ingredient2.setId(UUID.randomUUID());
-		ingredient2.setName("test2");
+		ingredient2.setQuantity("test2");
 		Ingredient ingredient3 = new Ingredient();
 		ingredient3.setId(UUID.randomUUID());
-		ingredient3.setName("test3");
+		ingredient3.setQuantity("test3");
 
 		List<Ingredient> ingredients = List.of(ingredient, ingredient2, ingredient3);
 
@@ -65,8 +65,8 @@ public class EntityMapperTest {
 
 		SoftAssertions softAssertions = new SoftAssertions();
 		softAssertions.assertThat(ingredientEntity.getId()).isEqualTo(ingredient.getId());
-		softAssertions.assertThat(ingredientEntity.getName()).isEqualTo(ingredient.getName());
-		softAssertions.assertThat(ingredientEntities.get(2).getName()).isEqualTo(ingredients.get(2).getName());
+		softAssertions.assertThat(ingredientEntity.getName()).isEqualTo(ingredient.getQuantity());
+		softAssertions.assertThat(ingredientEntities.get(2).getName()).isEqualTo(ingredients.get(2).getQuantity());
 		softAssertions.assertAll();
 	}
 
@@ -89,8 +89,8 @@ public class EntityMapperTest {
 
 		SoftAssertions softAssertions = new SoftAssertions();
 		softAssertions.assertThat(ingredientEntity.getId()).isEqualTo(ingredient.getId());
-		softAssertions.assertThat(ingredientEntity.getName()).isEqualTo(ingredient.getName());
-		softAssertions.assertThat(ingredientEntities.get(2).getName()).isEqualTo(ingredients.get(2).getName());
+		softAssertions.assertThat(ingredientEntity.getName()).isEqualTo(ingredient.getQuantity());
+		softAssertions.assertThat(ingredientEntities.get(2).getName()).isEqualTo(ingredients.get(2).getQuantity());
 		softAssertions.assertAll();
 	}
 
