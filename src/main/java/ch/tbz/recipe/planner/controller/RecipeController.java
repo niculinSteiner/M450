@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @RestController
 @Slf4j
-@CrossOrigin()
+@CrossOrigin("*")
 public class RecipeController {
 
 	private final RecipeService service;
@@ -38,5 +38,12 @@ public class RecipeController {
 	@PostMapping(value = "/api/recipes")
 	public ResponseEntity<Recipe> addRecipe(@RequestBody Recipe recipe) {
 		return new ResponseEntity<>(service.addRecipe(recipe), HttpStatus.OK);
+	}
+
+
+	@PutMapping(value = "/api/recipes")
+	public ResponseEntity<Recipe> editRecipeByName(@RequestBody Recipe recipe) {
+		service.edit(recipe);
+		return new ResponseEntity<>(getRecipe(recipe.getId()).getStatusCode());
 	}
 }

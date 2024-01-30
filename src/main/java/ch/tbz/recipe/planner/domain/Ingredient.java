@@ -12,8 +12,8 @@ import java.util.UUID;
 public class Ingredient {
 
     private UUID id;
-    private String name;
-    private String comment;
+    private String quantity;
+    private String ingredient;
     private Unit unit;
     private int amount;
 
